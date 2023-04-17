@@ -14,6 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables;
 
 class AllocationResource extends Resource
@@ -53,19 +54,15 @@ class AllocationResource extends Resource
                 TextColumn::make('pdv.name')->limit('50'),
                 TextColumn::make('date')->date(),
             ])
+            ->filters([
+                SelectFilter::make('promoter')->relationship('promoter', 'name')->multiple()
+            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
-    }
-    
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
     
     public static function getPages(): array

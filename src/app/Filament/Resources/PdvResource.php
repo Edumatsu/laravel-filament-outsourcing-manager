@@ -52,14 +52,7 @@ class PdvResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-    
+        
     public static function getPages(): array
     {
         return [
