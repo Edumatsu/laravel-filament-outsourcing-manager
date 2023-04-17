@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('campaign');
             $table->string('date');
-            $table->string('alug');
+            $table->string('slug');
             $table->foreignId('promoter_id')->constrained();
             $table->foreignId('pdv_id')->constrained();
             $table->softDeletes();
