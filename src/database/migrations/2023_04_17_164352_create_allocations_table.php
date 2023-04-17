@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('allocations', function (Blueprint $table) {
             $table->id();
-            $table->string('campaign');
-            $table->string('date');
-            $table->string('slug');
+            $table->string('campaign', 100);
+            $table->date('date');
             $table->foreignId('promoter_id')->constrained();
             $table->foreignId('pdv_id')->constrained();
             $table->softDeletes();

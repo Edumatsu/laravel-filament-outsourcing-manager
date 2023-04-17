@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('pdvs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('document');
+            $table->string('name', 50);
+            $table->string('document', 18);
             $table->boolean('active')->default(true);
-            $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();
         });
