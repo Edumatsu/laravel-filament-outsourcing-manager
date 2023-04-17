@@ -42,7 +42,11 @@ class PdvResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('name')->limit('50'),
-                TextColumn::make('document')->limit('18'),
+                TextColumn::make('document')
+                    ->limit('18')
+                    ->formatStateUsing(fn (string $state): string => 
+                        preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", "\$1.\$2.\$3/\$4-\$5", $state)
+                    ),
                 ToggleColumn::make('active'),
             ])
             ->actions([

@@ -42,7 +42,11 @@ class PromoterResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('name')->limit('50'),
-                TextColumn::make('document')->limit('14'),
+                TextColumn::make('document')
+                    ->limit('14')
+                    ->formatStateUsing(fn (string $state): string => 
+                    preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $state)
+                    ),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
