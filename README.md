@@ -1,4 +1,4 @@
-# Laravel 9 Docker Template
+# Outsoursing Manager With Laravel and Filament
 Laravel 9 Docker with PHP 8.1.6, nginx, Postgres SQL 14.4, Filament 2.0 and Redis.
 
 ## Getting Started
